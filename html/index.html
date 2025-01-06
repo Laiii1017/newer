@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zizone</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- 視差滾動區域 -->
+<link rel="stylesheet" href="style.css">
+<div class="parallax-container">
+  <div class="parallax-layer" style="background-image: url('zizone/3.png');" data-speed="0.2"></div>
+  <div class="parallax-layer" style="background-image: url('zizone/2.png');" data-speed="0.5"></div>
+  <div class="parallax-layer" style="background-image: url('zizone/1.png');" data-speed="0.8"></div>
+  <div class="parallax-text">
+    <h1 class="display-4 fw-bold">PINGO!</h1>
+    <p>Z.Z and BREAD18's Comic Life</p>  
+  </div>
+</div>
+
+ <!-- 選單 -->
+<link rel="stylesheet" href="navbar.css">
+<div class="navbar">
+  <a href="#character" class="active">Character</a>
+  <a href="#products">Portfolio</a>
+  <a href="#contact">Source</a>
+</div>
+
+<div id="character" style="padding: 10px 5px; ">
+  <h2 style="text-align: center; margin: 10px 0; font-family: 'Pangolin', sans-serif;">Character</h2>
+</div>
+<body>
+  <div class="container">
+    <div id="character1" class="section">
+      <div v-for="item in Character1" class="row">
+        <div class="col-md-6 order-md-2">
+          <img src="zizone/PINGO.png" alt="圖1">
+        </div>
+        <div class="content col-md-6">
+          <h2>PINGO</h2>
+          <p>{{item.text}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="character2" class="section">
+        <div v-for="item in Character2" class="row">
+          <div class="col-md-6">
+            <img src="zizone/mouse.png" alt="圖2">
+          </div>
+          <div class="content col-md-6">
+            <h2>Z.Z</h2>
+            <p>{{item.text}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="character3" class="section">
+          <div v-for="item in Character3" class="row">
+            <div class="col-md-6 order-md-2">
+              <img src="zizone/toast.png" alt="圖3">
+            </div>
+            <div class="content col-md-6">
+              <h2>BREAD18</h2>
+              <p>{{item.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          section.classList.add('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+<div class="container">
+  <div id="new-section" class="section">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="zizone/800*400.png" alt="新圖片" style="width: 1200px; height: 400px; object-fit: cover;">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </div>
+</div>
+
+
+<div id="products" style="padding: 10px 5px; ">
+  <h2 style="text-align: center; margin: 10px 0; font-family: 'Pangolin', sans-serif;">Porfolio</h2>
+</div>
+  
+    <script>
+      function handleScroll() {
+        const sections = document.querySelectorAll('.section');
+        const triggerBottom = window.innerHeight * 0.8; // 觸發點 (可見範圍的 80%)
+  
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const content = section.querySelector('.content');
+          
+          if (sectionTop < triggerBottom) {
+            section.classList.add('show'); // 圖片與文字滑入
+            setTimeout(() => {
+              content.classList.add('show'); // 延遲顯示文字動畫
+            }, 300); // 延遲300ms
+          }
+        });
+      }
+  
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+    </script>
+  </body>
+  </html>
+  
+
+  <!-- JS Scripts -->
+  <script>
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
+
+      parallaxLayers.forEach(layer => {
+        const speed = parseFloat(layer.getAttribute('data-speed'));
+        const offset = scrollY * speed;
+        layer.style.transform = `translateY(${offset}px)`;
+      });
+
+      const scrollToTop = document.getElementById('scrollToTop');
+      scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+  <!-- 引入 Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row g-4">
+        <!-- Example Items -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a class="portfolio-item" data-url="https://youtu.be/vLP-7o-lfrY?si=qqL051kgUW6poVsO" href="https://youtu.be/vLP-7o-lfrY?si=qqL051kgUW6poVsO" target="_blank">
+            <img src="zizone/300*200_工作區域 1.png" alt="Project 1">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a class="portfolio-item" data-url="https://youtu.be/qwVOACBxj_8?si=SIsatIQHoljQVfaq" href="https://youtu.be/qwVOACBxj_8?si=SIsatIQHoljQVfaq" target="_blank">
+            <img src="zizone/300*200-02.png" alt="Project 2">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a class="portfolio-item" data-url="https://youtu.be/qhseDJ2Vsi8?si=xqSKXCUJtPTXyFaL" href="https://youtu.be/qhseDJ2Vsi8?si=xqSKXCUJtPTXyFaL" target="_blank">
+            <img src="zizone/300*200-03.png" alt="Project 3">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a class="portfolio-item" data-url="https://youtu.be/lRegV_P73Jc?si=ucS6xTmvNoBAfq3A" href="https://youtu.be/lRegV_P73Jc?si=ucS6xTmvNoBAfq3A" target="_blank">
+            <img src="zizone/300*200-05.png" alt="Project 4">
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
+  
+  <div id="contact" style="padding: 10px 5px; ">
+    <h2 style="text-align: center; margin: 10px 0; font-family: 'Pangolin', sans-serif;">Source</h2>
+  </div>
+
+<!-- 聯絡區塊 -->
+<div class="contact-section">
+  <p><a href="https://linktr.ee/zizone.official" target="_blank" rel="noopener noreferrer">https://linktr.ee/zizone.official</a></p>
+</div>
+
+
+  <!-- 引入 Bootstrap JS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vue.js"></script>
+</body>
+</html>

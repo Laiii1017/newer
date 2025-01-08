@@ -48,12 +48,12 @@
     </div>
 
     <div class="container">
-      <div id="character2" class="section">
-        <div v-for="item in Character2" class="row">
+      <div class="section">
           <div class="col-md-6">
             <img src="zizone/mouse.png" alt="圖2">
           </div>
-          <div class="content col-md-6">
+          <div id="character2" class="content col-md-6">
+            <div v-for="item in Character2" class="row">
             <h2>Z.Z</h2>
             <p>{{item.text}}</p>
           </div>

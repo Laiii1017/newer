@@ -28,9 +28,9 @@ var Character3DB = DB.create(__dirname+"/character3.db");
     {text:"ZIZONE的屋主，是一個認真生活，勤勞工作的上班族。"},
  ])
 
- Character3DB.insert([
+ /*Character3DB.insert([
     {text:"PINGO跟Z.Z的好朋友，是個不善與人交際但對人生充滿夢想的小夥伴。"},
- ])
+ ])*/
 
 
 server.get("/character1", (req,res)=>{
